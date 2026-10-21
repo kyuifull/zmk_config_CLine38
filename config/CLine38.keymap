@@ -14,7 +14,7 @@
      0 BASE    大西配列
      1 FUNC    数字・F キー           (td_1 ホールド)
      2 SYMBOL  記号・カーソル         (td_2 ホールド)
-     3 TENKEY  テンキー               (右端親指 tog 3 でトグル)
+     3 TENKEY  テンキー               (Q ホールド。TENKEY 内の右端親指 tog 3 でトグル)
      4 SCROLL  トラックボールでスクロール (R ホールド。CLine38_R.overlay の scroller)
      5 SYSTEM  Bluetooth・ブートローダ (td_1 + td_2 同時ホールド)
 
@@ -252,10 +252,10 @@
         default_layer {
             display-name = "BASE";
             bindings = <
-&kp Q     &kp L     &kp U     &kp COMMA  &kp PERIOD                                                                        &kp F  &kp W  &lt 4 R  &kp Y  &kp P
-&kp E     &kp I     &kp A     &kp O      &td_minus                                                                         &kp K  &kp T  &kp N    &kp S  &kp H
-&td_z     &td_x     &td_c     &td_v      &kp SLASH                                                                         &kp G  &kp D  &kp M    &kp J  &kp B
-          &kp ESC   &td_question  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &tog 3
+&lt 3 Q              &td_z                 &kp U                &kp COMMA  &kp PERIOD                                     &kp F  &kp W  &lt 4 R             &kp Y                 &kp P
+&mt LEFT_CONTROL E   &mt LEFT_SHIFT I      &mt LEFT_ALT A       &kp O      &td_minus                                      &kp K  &kp T  &mt LEFT_ALT N      &mt LEFT_SHIFT S      &mt LEFT_CONTROL H
+&td_x                &td_c                 &td_v                &kp L      &kp SLASH                                      &kp G  &kp D  &kp M               &kp J                 &kp B
+          &kp ESC   &td_question  &td_3 LEFT_ALT DELETE  &td_1 1 TAB  &td_space LEFT_CONTROL SPACE    &td_enter RIGHT_SHIFT ENTER  &td_2 2 BACKSPACE    &mt LEFT_GUI ENTER
             >;
         };
 
@@ -272,20 +272,20 @@
         symbol_layer {
             display-name = "SYMBOL";
             bindings = <
-&kp HASH       &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AT_SIGN         &kp HOME     &none           &kp UP_ARROW    &none            &kp PAGE_UP
-&kp AMPERSAND  &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE      &kp END      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN
-&kp COLON      &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp TILDE           &arrow_left  &arrow_down     &arrow_up       &arrow_right     &none
-               &kp SEMICOLON      &kp DOLLAR            &trans                 &trans  &trans      &trans       &trans                                           &trans
+&kp HASH       &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AT_SIGN         &kp HOME     &kp RS(LEFT_ARROW)  &kp UP_ARROW    &kp RS(RIGHT_ARROW)  &kp PAGE_UP
+&kp AMPERSAND  &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE      &kp END      &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp PAGE_DOWN
+&kp DOLLAR     &kp GRAVE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp TILDE           &trans       &arrow_left         &arrow_up       &arrow_right         &arrow_down
+               &kp COLON          &kp SEMICOLON         &trans                 &trans  &trans      &trans       &trans                                                   &trans
             >;
         };
 
         tenkey_layer {
             display-name = "TENKEY";
             bindings = <
-&none     &none      &none         &none      &none              &kp ASTERISK     &kp PLUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
+&none     &kp KP_NUMLOCK  &none    &none      &none              &kp ASTERISK     &kp PLUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9
 &kp TAB   &none      &kp PERCENT   &kp PIPE   &kp BACKSLASH      &kp SLASH        &kp MINUS        &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6
 &none     &none      &none         &none      &none              &kp EQUAL        &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3
-          &kp ESC    &kp BACKSPACE &kp LEFT_ALT  &none  &kp SPACE    &kp KP_ENTER  &kp KP_DOT                                         &tog 3
+          &trans     &trans        &trans        &trans &trans       &kp KP_ENTER  &kp KP_DOT                                         &tog 3
             >;
         };
 
@@ -302,9 +302,9 @@
         system_layer {
             display-name = "SYSTEM";
             bindings = <
-&trans  &trans  &trans        &trans        &trans              &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans  &trans        &trans        &trans              &trans        &trans        &trans        &trans        &studio_unlock
-&trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3        &bootloader   &trans        &trans        &trans        &bt BT_CLR
+&bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0        &trans       &bt BT_NXT  &bt BT_PRV  &trans  &trans
+&trans        &trans        &kp SPACE     &trans        &trans              &trans       &trans      &kp SPACE   &trans  &studio_unlock
+&trans        &trans        &trans        &trans        &trans              &bootloader  &trans      &trans      &trans  &bt BT_CLR
         &trans  &trans        &trans        &trans  &trans      &trans        &trans                                    &bt BT_CLR_ALL
             >;
         };
