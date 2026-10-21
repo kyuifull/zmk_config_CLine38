@@ -68,11 +68,12 @@
         //<&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;         //Y軸反転
         //<&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
         <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;       //X軸反転
-        //<&zip_temp_layer 2 1000>;                            //オートマウスレイヤーの選択;
+    // オートマウスレイヤー (zip_temp_layer) は使わない。
+    // 本体が小さくトラックボールに不用意に触れやすいため。クリックはキーマップのコンボで行う。
 
 
     scroller {
-        layers = <3>;
+        layers = <4>;                                           //SCROLL レイヤー (R ホールド)
         input-processors = 
             // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
             // <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
